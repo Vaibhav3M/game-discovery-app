@@ -2,32 +2,41 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { HStack, VStack } from '@chakra-ui/react'
+import SelectDropDown from './components/SelectDropDown/SelectDropDown'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const platforms =  {
+    items: [
+      { label: "PC", value: "PC" },
+      { label: "PlayStation", value: "PlayStation" },
+      { label: "xbox", value: "xbox" },
+      { label: "Nintendo", value: "Nintendo" },
+      { label: "iOS", value: "iOS" },
+      { label: "Andriod", value: "Andriod" },
+  ]};
+
+  const sortingOrder =  {
+    items: [
+      { label: "Relevance", value: "Relevance" },
+      { label: "Date Added", value: "Date Added" },
+      { label: "Name", value: "Name" },
+      { label: "Release date", value: "Release date" },
+      { label: "Rating", value: "Rating" },
+  ]};
+
+  const [selectedPlatform, setSelectedPlatform] = useState<string[]>(['Games']);
+  const [orderBy, setOrderBy] = useState<string[]>([]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <VStack>
+    <h1>{selectedPlatform}</h1>
+      <HStack>
+        <SelectDropDown placeholder="Platforms" elements={platforms} onSelectedValue={setSelectedPlatform}></SelectDropDown>
+        <SelectDropDown placeholder="Order By: " elements={sortingOrder} onSelectedValue={setOrderBy} combineItems={true}></SelectDropDown>
+      </HStack>
+    </VStack>
     </>
   )
 }
