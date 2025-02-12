@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { HStack, VStack } from '@chakra-ui/react'
 import SelectDropDown from './components/SelectDropDown/SelectDropDown'
@@ -26,7 +24,7 @@ function App() {
   ]};
 
   const [selectedPlatform, setSelectedPlatform] = useState<string[]>(['Games']);
-  const [orderBy, setOrderBy] = useState<string[]>([]);
+  const [, setOrderBy] = useState<string[]>([]);
 
   return (
     <>

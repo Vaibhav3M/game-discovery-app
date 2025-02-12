@@ -19,7 +19,7 @@ type SelectDropDownProps = {
     combineItems?: boolean;
 };
 
-  export default function SelectDropDown( { label, placeholder, elements, onSelectedValue, combineItems } :  SelectDropDownProps  ) {
+  export default function SelectDropDown( { label, placeholder, elements, onSelectedValue } :  SelectDropDownProps  ) {
 
     const listElements = createListCollection({
         items: [
@@ -28,10 +28,10 @@ type SelectDropDownProps = {
     });
 
     return (
-        <SelectRoot colorPalette='red' collection={listElements} size="md" width="200px" onValueChange={(e) => onSelectedValue(e.value)} variant={"outline"}>
+        <SelectRoot collection={listElements} size="md" width="200px" onValueChange={(e) => onSelectedValue(e.value)} variant={"outline"}>
             <SelectLabel > {label } </SelectLabel>
             <SelectTrigger>
-            <SelectValueText placeholder={placeholder} />
+                <SelectValueText placeholder={placeholder} />
             </SelectTrigger>
             <SelectContent>
             {listElements.items.map(item => (
