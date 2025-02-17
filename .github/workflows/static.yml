@@ -8,6 +8,7 @@ on:
 permissions:
   pages: write
   id-token: write
+  contents: write
 
 jobs:
   build:
@@ -25,7 +26,7 @@ jobs:
           git init
           git config --global user.email malhotra.vaibhav0304@gmail.com
           git config --global user.name Vaibhav3M
-          git remote add origin https://vaibhav3m:${{ secrets.GITHUB_TOKEN }}@github.com/vaibhav3m/game-discovery-app
+          git remote add origin https://Vaibhav3M:${{ secrets.GITHUB_TOKEN }}@github.com/vaibhav3m/game-discovery-app
           git checkout -b gh-pages
           git add .
           git commit -m "update: gh-pages"
