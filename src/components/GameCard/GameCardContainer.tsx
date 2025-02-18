@@ -5,7 +5,7 @@ interface Props {
     children: ReactNode;
 }
 export const GameCardContainer = ({ children }: Props) => {
-    return (        
+    return (
         <Box borderRadius={10} overflow={'hidden'}>{children}</Box>
     )
 }
