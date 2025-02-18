@@ -1,6 +1,5 @@
-import apiClient from "@/services/api-cient";
-import { CanceledError } from "axios";
-import { useEffect, useState } from "react";
+import { Genre } from "./useGenres";
+import { useData } from "./useData";
 
 
 export interface Platform {
@@ -17,35 +16,7 @@ export interface Game {
     metacritic: number;
 }
 
-interface GetGamesResponse {
-    count: number;
-    results: Game[];
-}
-
-export const useGames = () => {
-
-    const [games, setGames] = useState<Game[]>([]);
-    const [error, setError] = useState("");
-    const [isLoading, setisLoading] = useState(false);
-
-    useEffect(() => {
-        setisLoading(true);
-        const controller = new AbortController();
-
-        apiClient.get<GetGamesResponse>('/games', { signal: controller.signal })
-        .then((res) => {
-            setGames(res.data.results);
-            setisLoading(false);
-        })
-        .catch((e) => {
-            if (e instanceof CanceledError) return;
-            setError(e.message);
-            setisLoading(false);
-        });
-
-    return () => controller.abort();
-    }, []);
-
-    return { games, error, isLoading };
+export const useGames = (selectedGenre: Genre | null) => {
+    return useData<Game>('/games', { params: {genres: selectedGenre?.id }}, [selectedGenre?.id]);
     
 }
