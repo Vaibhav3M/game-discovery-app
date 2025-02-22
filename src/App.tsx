@@ -14,10 +14,12 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import { PlatformSelector } from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
+import { SortSelector } from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string | null;
 }
 function App() {
 
@@ -50,12 +52,15 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <PlatformSelector onPlatformSelect={(platform) => setGameQuery({ ...gameQuery, platform })} selectedPlatform={gameQuery.platform} />
+          <HStack paddingY={2} >
+            <PlatformSelector onPlatformSelect={(platform) => setGameQuery({ ...gameQuery, platform })} selectedPlatform={gameQuery.platform} />
+            <SortSelector onSortSelect={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} selectedSort={gameQuery.sortOrder}></SortSelector>
+          </HStack>
           <GameGrid
             gameQuery={gameQuery}
           ></GameGrid>
         </GridItem>
-      </Grid>
+      </Grid >
     </>
   );
 }
