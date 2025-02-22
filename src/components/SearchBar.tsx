@@ -14,8 +14,7 @@ export const SearchBar = ({ onSearch }: Props) => {
             e.preventDefault();
             if (ref.current) return onSearch(ref.current.value)
         }}>
-            <InputGroup
-                flex="1"
+            <InputGroup width={'100%'}
                 startElement={<BsSearch />}
             >
                 <Input ref={ref} borderRadius={20} placeholder="Search games..." variant={'subtle'} />
