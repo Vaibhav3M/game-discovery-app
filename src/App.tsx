@@ -5,11 +5,10 @@ import {
   HStack,
   Show,
   useBreakpointValue,
-  VStack,
 } from "@chakra-ui/react";
-import { NavigationBar } from "./components/NavigationBar/NavigationBar";
-import { GameGrid } from "./components/GameGrid/GameGrid";
-import { GenreList } from "./components/GenreList/GenreList";
+import { NavigationBar } from "./components/NavigationBar";
+import { GameGrid } from "./components/GameGrid";
+import { GenreList } from "./components/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import { PlatformSelector } from "./components/PlatformSelector";

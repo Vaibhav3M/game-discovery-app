@@ -9,10 +9,10 @@ interface Props {
 export const GenreList = ({ onGenreSelect, selectedGenre }: Props) => {
     const { data, error, isLoading } = useGenres();
 
+    if (error) return <Text> {error}</Text>;
     return (
         <>
             <Heading fontSize={'2xl'} marginY={3}>Genres</Heading>
-            {error && <Text> {error}</Text>}
             {isLoading && <Spinner />}
             <List.Root listStyle="none">
                 {data.map((genre) => (
