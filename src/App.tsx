@@ -1,5 +1,4 @@
 import "./App.css";
-import { ColorModeButton } from "@/components/ui/color-mode";
 import {
   Grid,
   GridItem,
@@ -20,6 +19,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string | null;
+  search: string | null;
 }
 function App() {
 
@@ -37,11 +37,8 @@ function App() {
           lg: "200px 1fr",
         }}
       >
-        <GridItem area="nav">
-          <HStack justifyContent="space-between" paddingY={2}>
-            <NavigationBar></NavigationBar>
-            <ColorModeButton></ColorModeButton>
-          </HStack>
+        <GridItem area="nav" marginY={5}>
+          <NavigationBar onSearch={(search) => setGameQuery({ ...gameQuery, search })}></NavigationBar>
         </GridItem>
         <Show when={useBreakpointValue({ lg: true })}>
           <GridItem area="aside" paddingX={5}>
