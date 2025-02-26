@@ -8,6 +8,22 @@ You can access the live version of the app deployed via GitHub Pages:
 
 [Game Discovery App](http://www.vaibhavmalhotra.com/game-discovery-app/)
 
+## Technologies Used
+
+- Nodejs
+- React
+- TypeScript
+- ChakraUI
+
+## Features
+
+- Reposive layout
+- Dark & Light mode
+- Skeleton display when loading page
+- Infinitie scroll
+
+## How To Run
+
 ## Running the Project Locally
 
 To run this project on your local machine, follow these steps:
@@ -32,7 +48,9 @@ To run this project on your local machine, follow these steps:
 
    This command installs all the required packages listed in the `package.json` file.
 
-4. **Start the development server:**
+4. Get a api key from [RAWG page](https://rawg.io/apidocs) and create `.env` file in main folder with your key.
+  
+6. **Start the development server:**
 
    ```bash
    npm dev
